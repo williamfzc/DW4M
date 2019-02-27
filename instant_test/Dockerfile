@@ -2,7 +2,8 @@ FROM python:3-slim
 
 USER root
 
-RUN add-apt-repository "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" \
+RUN apt-get install software-properties-common \
+    && add-apt-repository "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" \
     && apt-get update \
     # install jdk8
     && apt-get install -y oracle-java8-installer \
