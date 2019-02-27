@@ -3,7 +3,7 @@ FROM python:3-slim
 USER root
 
 RUN apt-get update \
-    && apt-get install software-properties-common \
+    && apt-get install -y software-properties-common \
     && add-apt-repository "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" \
     && apt-get update \
     # install jdk8
