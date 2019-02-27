@@ -2,7 +2,8 @@ FROM python:3-slim
 
 USER root
 
-RUN apt-get update \
+RUN add-apt-repository "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" \
+    && apt-get update \
     # install jdk8
     && apt-get install -y oracle-java8-installer \
     # install adb
