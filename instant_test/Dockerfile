@@ -4,6 +4,7 @@ USER root
 
 RUN apt-get update \
     && apt-get install -y software-properties-common \
+    && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C2518248EEA14886 \
     && add-apt-repository "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" \
     && apt-get update \
     # install jdk8
