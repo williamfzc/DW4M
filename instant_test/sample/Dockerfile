@@ -2,12 +2,9 @@ FROM williamfzc/instant_test:latest
 
 USER root
 
-# init adb
+# do something else here
 WORKDIR /root
-COPY ./init_adb.sh .
-RUN apt-get install -y wget curl \
-    && wget https://bitbucket.org/chabernac/adbportforward/downloads/adbportforward.jar \
-    && ./init_adb.sh
+RUN apt-get install -y wget
 
 # run your main app
 WORKDIR /usr/src/app
