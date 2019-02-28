@@ -11,6 +11,4 @@ RUN apk add --no-cache git \
     && apk add --no-cache bash
 
 WORKDIR /usr/src/app/ud4d
-COPY keep_alive.py .
-
 CMD [ "python", "keep_alive.py" ]
