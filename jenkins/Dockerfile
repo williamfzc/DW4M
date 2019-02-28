@@ -18,4 +18,13 @@ RUN wget https://dl.google.com/android/repository/platform-tools-latest-linux.zi
 ENV PATH $PATH:/root/platform-tools
 
 # START IT WITH:
-# sudo docker run -d --restart always --privileged -v /usr/local/jenkins_home:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock -v `which docker`:/bin/docker -v /dev/bus/usb:/dev/bus/usb williamfzc/instant_jenkins
+
+# sudo docker run -d --restart always --privileged \
+#     -v /usr/local/jenkins_home:/var/jenkins_home \
+#     -v /var/run/docker.sock:/var/run/docker.sock \
+#     -v `which docker`:/bin/docker \
+#     -v /dev/bus/usb:/dev/bus/usb \
+#     -p 49001:8080 \
+#     -p 49002:50000 \
+#     --name instant_jenkins \
+#     williamfzc/instant_jenkins
