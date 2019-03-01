@@ -1,3 +1,10 @@
 FROM nginx:stable-alpine
+
 COPY ./nginx.conf /etc/nginx/nginx.conf
-CMD sh -c "ln -snf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo Asia/Shanghai > /etc/timezone && nginx -g 'daemon off;'"
+
+ENV TIME_ZONE "Asia/Shanghai"
+
+RUN ln -snf /usr/share/zoneinfo/$TIME_ZONE /etc/localtime \
+    && echo $TIME_ZONE > /etc/timezone
+
+CMD ["nginx", "-g", "'daemon off;'"]
