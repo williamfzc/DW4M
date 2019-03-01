@@ -12,7 +12,8 @@ RUN apt-get update \
 
 # use latest adb
 RUN wget https://dl.google.com/android/repository/platform-tools-latest-linux.zip \
-    && unzip platform-tools-latest-linux.zip
+    && unzip platform-tools-latest-linux.zip \
+    && rm platform-tools-latest-linux.zip
 
 ENV PATH $PATH:/root/platform-tools
 
