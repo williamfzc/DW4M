@@ -21,7 +21,9 @@ docker run -d \
 ### Jenkins
 
 ```bash
-sudo docker run -d --restart always --privileged \
+docker run -d \
+    --restart always \
+    --privileged \
     -v /usr/local/jenkins_home:/var/jenkins_home \
     -v /var/run/docker.sock:/var/run/docker.sock \
     -v `which docker`:/bin/docker \
@@ -41,7 +43,9 @@ sudo docker run -d --restart always --privileged \
 - port `9410`
 
 ```bash
-sudo docker run -d --privileged \
+docker run -d \
+    --privileged \
+    --restart=always \
     -v /dev/bus/usb:/dev/bus/usb \
     -v `which docker`:/bin/docker \
     -v /var/run/docker.sock:/var/run/docker.sock \
@@ -54,11 +58,13 @@ sudo docker run -d --privileged \
 ### FileBrowser
 
 ```bash
-docker run \
+docker run -d \
+    --restart=always \
     -v /usr/local/filebrowser_home/srv:/srv \
     -v /usr/local/filebrowser_home/filebrowser.db:/database.db \
     -v /usr/local/filebrowser_home/.filebrowser.json:/.filebrowser.json \
     -p 49003:80 \
+    --name filebrowser \
     filebrowser/filebrowser
 ```
 
@@ -71,4 +77,20 @@ docker run -d \
     --name registry \
     -v /mnt/registry:/var/lib/registry \
     registry:2
+```
+
+### Sonarqube
+
+很可能遇到权限问题。
+
+```bash
+docker run -d \
+    --restart=always \
+    -p 49005:9000 \
+    -v /usr/local/sonarqube_home/conf:/opt/sonarqube/conf \
+    -v /usr/local/sonarqube_home/data:/opt/sonarqube/data \
+    -v /usr/local/sonarqube_home/logs:/opt/sonarqube/logs \
+    -v /usr/local/sonarqube_home/extensions:/opt/sonarqube/extensions \
+    --name sonarqube \
+    sonarqube:lts
 ```
