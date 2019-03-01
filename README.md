@@ -57,6 +57,8 @@ docker run -d \
 
 ### FileBrowser
 
+#### Browser
+
 ```bash
 docker run -d \
     --restart=always \
@@ -66,6 +68,17 @@ docker run -d \
     -p 49003:80 \
     --name filebrowser \
     filebrowser/filebrowser
+```
+
+#### Static File Server
+
+```bash
+docker run -d \
+    --restart=always \
+    -v /usr/local/filebrowser_home/srv:/usr/share/nginx/files \
+    -p 49004:80 \
+    --name fileserver \
+    williamfzc/min_file_server
 ```
 
 ### Registry
