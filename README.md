@@ -107,3 +107,14 @@ docker run -d \
     --name sonarqube \
     sonarqube:lts
 ```
+
+### we4m
+
+```bash
+docker run -it \
+    --privileged \
+    -v `which docker`:/bin/docker \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    --name we4m \
+    williamfzc/we4m
+```
