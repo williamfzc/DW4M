@@ -4,7 +4,7 @@ USER root
 RUN apt-get update \
     && apt-get -y install openssh-server \
     && apt-get -y install python3 python3-pip \
-    && apt-get -y install sudo libltdl-dev wget zip \
+    && apt-get -y install sudo libltdl-dev wget zip curl \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
