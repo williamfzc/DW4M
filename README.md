@@ -27,7 +27,12 @@ docker run -d \
     -v /usr/local/jenkins_home:/var/jenkins_home \
     -v /var/run/docker.sock:/var/run/docker.sock \
     -v `which docker`:/bin/docker \
+    # and you may need to map for the timezone
+    -v /etc/timezone:/etc/timezone:ro \
+    -v /etc/localtime:/etc/localtime:ro \
+    # usb
     -v /dev/bus/usb:/dev/bus/usb \
+    # port
     -p 49001:8080 \
     -p 49002:50000 \
     # if you need dns, replace ip address below
